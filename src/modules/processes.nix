@@ -96,16 +96,19 @@ in
       description = ''
         The command to run the process-manager. This is meant to be set by the process-manager.''${implementation}.
       '';
+      default = "";
     };
 
     procfile = lib.mkOption {
       type = types.package;
       internal = true;
+      default = pkgs.writeText "procfile" "";
     };
 
     procfileEnv = lib.mkOption {
       internal = true;
       type = types.package;
+      default = pkgs.writeText "procfile-env" "";
     };
 
     procfileScript = lib.mkOption {
